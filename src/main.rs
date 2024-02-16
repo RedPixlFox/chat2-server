@@ -1,9 +1,10 @@
 mod ascii_codes;
 
 use std::{
-    io::{stdin, Read},
+    io::{stdin, BufRead, BufReader},
     net::{SocketAddr, TcpListener, TcpStream},
-    thread::{self, JoinHandle},
+    thread::{self, sleep, JoinHandle},
+    time::Duration,
 };
 
 use crate::ascii_codes::style::*;
@@ -40,8 +41,32 @@ fn main() {
 fn handle_connection(mut stream: TcpStream) {
     println!("{DIM}{:?} connected{DIM_RESET}", stream);
 
-    // let mut buf: Vec<u8> = vec![];
-    // stream.read_to_end(&mut buf);
+    //stream.set_write_timeout(Some(Duration::from_millis(1)));
+
+    let mut buf_reader = BufReader::new(&stream);
+
+    let mut counter: usize = 0;
+    loop {
+        let mut buf = String::new();
+        let _ = buf_reader.read_line(&mut buf);
+
+        if buf == "" {
+            break;
+        } // break loop, if stream sends no bytes anymore
+
+        if buf.trim() == "" {
+            println!("{}", buf.replace("\r", "\\r").replace("\n", "\\n"));
+            sleep(Duration::from_millis(1));
+            continue;
+        } // continue loop, because no data was sent
+
+        println!(
+            "[{counter}]: {}",
+            buf.replace("\r", "\\r").replace("\n", "\\n")
+        );
+
+        counter += 1;
+    }
 
     println!("{DIM}{:?} disconnected{DIM_RESET}", stream);
 }
