@@ -2,28 +2,28 @@ pub mod style {
     pub const RESET: &str = "\x1b[0m"; // reset all modes (styles and colors)
 
     pub const BOLD: &str = "\x1b[1m"; // set bold mode
-    pub const BOLD_RESET: &str = "\x1b[22m"; // reset bold mode
+    pub const BOLD_END: &str = "\x1b[22m"; // reset bold mode
 
     pub const DIM: &str = "\x1b[2m"; // set dim/faint mode
-    pub const DIM_RESET: &str = "\x1b[22m"; // reset dim/faint mode
+    pub const DIM_END: &str = "\x1b[22m"; // reset dim/faint mode
 
     pub const ITALIC: &str = "\x1b[3m"; // set italic mode
-    pub const ITALIC_RESET: &str = "\x1b[23m"; // reset italic mode
+    pub const ITALIC_END: &str = "\x1b[23m"; // reset italic mode
 
     pub const UNDERLINE: &str = "\x1b[4m"; // set underline mode
-    pub const UNDERLINE_RESET: &str = "\x1b[24m"; // reset underline mode
+    pub const UNDERLINE_END: &str = "\x1b[24m"; // reset underline mode
 
     pub const BLINK: &str = "\x1b[5m"; // set blinking mode
-    pub const BLINK_RESET: &str = "\x1b[25m"; // reset blinking mode
+    pub const BLINK_END: &str = "\x1b[25m"; // reset blinking mode
 
     pub const INVERSE: &str = "\x1b[7m"; // set inverse/reverse mode
-    pub const INVERSE_RESET: &str = "\x1b[27m"; // reset inverse/reverse mode
+    pub const INVERSE_END: &str = "\x1b[27m"; // reset inverse/reverse mode
 
     pub const HIDDEN: &str = "\x1b[8m"; // set hidden/invisible mode
-    pub const HIDDEN_RESET: &str = "\x1b[28m"; // reset hidden/invisible mode
+    pub const HIDDEN_END: &str = "\x1b[28m"; // reset hidden/invisible mode
 
     pub const STRIKETHROUGH: &str = "\x1b[9m"; // set strikethrough mode
-    pub const STRIKETHROUGH_RESET: &str = "\x1b[29m"; // reset strikethrough mode
+    pub const STRIKETHROUGH_END: &str = "\x1b[29m"; // reset strikethrough mode
 }
 
 pub mod erase {
@@ -36,25 +36,24 @@ pub mod erase {
 }
 
 pub mod color {
-    // B_X sets the background color to color X
-    pub const BLACK: &str = "\x1b[30";
-    pub const B_BLACK: &str = "\x1b[40";
-    pub const RED: &str = "\x1b[31";
-    pub const B_RED: &str = "\x1b[41";
-    pub const GREEN: &str = "\x1b[32";
-    pub const B_GREEN: &str = "\x1b[42";
-    pub const YELLOW: &str = "\x1b[33";
-    pub const B_YELLOW: &str = "\x1b[43";
-    pub const BLUE: &str = "\x1b[34";
-    pub const B_BLUE: &str = "\x1b[44";
-    pub const MAGENTA: &str = "\x1b[35";
-    pub const B_MAGENTA: &str = "\x1b[45";
-    pub const CYAN: &str = "\x1b[36";
-    pub const B_CYAN: &str = "\x1b[46";
-    pub const WHITE: &str = "\x1b[37";
-    pub const B_WHITE: &str = "\x1b[47";
-    pub const DEFAULT: &str = "\x1b[39";
-    pub const B_DEFAULT: &str = "\x1b[49";
-    pub const RESET: &str = "\x1b[0";
-    pub const B_RESET: &str = "\x1b[0";
+    // F -> Foreground
+    // B -> Background
+    pub const F_BLACK: &str = "\x1b[30m";
+    pub const B_BLACK: &str = "\x1b[40m";
+    pub const F_RED: &str = "\x1b[31m";
+    pub const B_RED: &str = "\x1b[41m";
+    pub const F_GREEN: &str = "\x1b[32m";
+    pub const B_GREEN: &str = "\x1b[42m";
+    pub const F_YELLOW: &str = "\x1b[33m";
+    pub const B_YELLOW: &str = "\x1b[43m";
+    pub const F_BLUE: &str = "\x1b[34m";
+    pub const B_BLUE: &str = "\x1b[44m";
+    pub const F_MAGENTA: &str = "\x1b[35m";
+    pub const B_MAGENTA: &str = "\x1b[45m";
+    pub const F_CYAN: &str = "\x1b[36m";
+    pub const B_CYAN: &str = "\x1b[46m";
+    pub const F_WHITE: &str = "\x1b[37m";
+    pub const B_WHITE: &str = "\x1b[47m";
+    pub const F_DEFAULT: &str = "\x1b[39m";
+    pub const B_DEFAULT: &str = "\x1b[49m";
 }
